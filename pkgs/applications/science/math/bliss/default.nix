@@ -4,31 +4,29 @@ stdenv.mkDerivation rec {
   name = "bliss-${version}";
   version = "0.73";
 
-  blissSrc = fetchurl {
+  src = fetchurl {
     url = "http://www.tcs.hut.fi/Software/bliss/${name}.zip";
     sha256 = "f57bf32804140cad58b1240b804e0dbd68f7e6bf67eba8e0c0fa3a62fd7f0f84";
   };
+
   blissPatch = fetchurl {
     url = "http://scip.zib.de/download/bugfixes/scip-5.0.1/bliss-0.73.patch";
     sha256 = "815868d6586bcd49ff3c28e14ccb536d38b2661151088fe08187c13909c5dab0";
   };
-  src = [ blissSrc blissPatch ];
 
   nativeBuildInputs = [ unzip doxygen ];
 
-  unpackCmd = ''
-        case "$curSrc" in
-            *.zip)
-                unzip "$curSrc"
-                ;;
-            *)
-                ;;
-        esac
-  '';
+#  unpackCmd = ''
+#        case "$curSrc" in
+#            *.zip)
+#                unzip "$curSrc"
+#                ;;
+#            *)
+#                ;;
+#        esac
+#  '';
 
-  patchPhase = ''
-    patch -p1 < $blissPatch
-  '';
+  patches = [ blissPatch ];
 
   preBuild = ''
     doxygen Doxyfile
