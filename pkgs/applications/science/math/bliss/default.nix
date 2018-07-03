@@ -16,16 +16,6 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ unzip doxygen ];
 
-#  unpackCmd = ''
-#        case "$curSrc" in
-#            *.zip)
-#                unzip "$curSrc"
-#                ;;
-#            *)
-#                ;;
-#        esac
-#  '';
-
   patches = [ blissPatch ];
 
   preBuild = ''
