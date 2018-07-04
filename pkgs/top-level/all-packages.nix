@@ -5006,6 +5006,8 @@ with pkgs;
 
   schema2ldif = callPackage ../tools/text/schema2ldif { };
 
+  scipoptsuite = callPackage ../applications/science/math/scipoptsuite { };
+
   shocco = callPackage ../tools/text/shocco { };
 
   shotwell = callPackage ../applications/graphics/shotwell { };
