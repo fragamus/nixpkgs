@@ -1,6 +1,7 @@
 { stdenv, requireFile, cmake, bison, flex, readline, zlib, gmp, bliss, ipopt }:
 
 stdenv.mkDerivation rec {
+  BLISS_DIR = bliss;
   name = "scipoptsuite-${version}";
   version = "6.0.0";
 
@@ -19,7 +20,6 @@ stdenv.mkDerivation rec {
   buildInputs = [ cmake bison flex readline zlib gmp bliss ipopt ];
 
   buildPhase = ''
-    find .
     mkdir build
     cd build
     cmake .. #\
