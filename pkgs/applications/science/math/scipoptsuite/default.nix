@@ -1,6 +1,7 @@
 { stdenv, requireFile, cmake, bison, flex, readline, zlib, gmp, bliss, ipopt }:
 
 stdenv.mkDerivation rec {
+  IPOPT_DIR = ipopt;
   BLISS_DIR = bliss;
   name = "scipoptsuite-${version}";
   version = "6.0.0";
