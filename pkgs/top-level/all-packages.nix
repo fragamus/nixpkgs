@@ -1891,6 +1891,8 @@ with pkgs;
 
   createrepo_c = callPackage ../tools/package-management/createrepo_c { };
 
+  criter = callPackage ../development/test/criter { };
+
   cromfs = callPackage ../tools/archivers/cromfs { };
 
   cron = callPackage ../tools/system/cron { };
@@ -5005,8 +5007,6 @@ with pkgs;
   sharutils = callPackage ../tools/archivers/sharutils { };
 
   schema2ldif = callPackage ../tools/text/schema2ldif { };
-
-  scipoptsuite = callPackage ../applications/science/math/scipoptsuite { };
 
   shocco = callPackage ../tools/text/shocco { };
 
